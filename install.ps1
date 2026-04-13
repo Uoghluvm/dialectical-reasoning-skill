@@ -17,7 +17,7 @@ if (-not $PSBoundParameters.ContainsKey("Destination") -and $env:DIALECTICAL_DES
 $repoOwner = if ($env:REPO_OWNER) { $env:REPO_OWNER } else { "Uoghluvm" }
 $repoName = if ($env:REPO_NAME) { $env:REPO_NAME } else { "dialectical-reasoning-skill" }
 $skillName = "dialectical-reasoning"
-$scriptRoot = Split-Path -Parent $PSCommandPath
+$scriptRoot = if ($PSCommandPath) { Split-Path -Parent $PSCommandPath } else { $null }
 
 function Resolve-Targets {
     param(
@@ -63,8 +63,8 @@ $tempRoot = Join-Path ([System.IO.Path]::GetTempPath()) ("dialectical-install-" 
 New-Item -ItemType Directory -Force -Path $tempRoot | Out-Null
 
 try {
-    $localSourceDir = Join-Path $scriptRoot "skills\$skillName"
-    if (Test-Path $localSourceDir) {
+    $localSourceDir = if ($scriptRoot) { Join-Path $scriptRoot "skills\$skillName" } else { $null }
+    if ($localSourceDir -and (Test-Path $localSourceDir)) {
         $sourceDir = Get-Item $localSourceDir
     }
     else {

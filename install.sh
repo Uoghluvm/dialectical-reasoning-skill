@@ -90,10 +90,14 @@ cleanup() {
 }
 trap cleanup EXIT
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LOCAL_SOURCE_DIR="${SCRIPT_DIR}/skills/${SKILL_NAME}"
+SCRIPT_DIR=""
+LOCAL_SOURCE_DIR=""
+if [[ -n "${BASH_SOURCE[0]:-}" && -f "${BASH_SOURCE[0]}" ]]; then
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  LOCAL_SOURCE_DIR="${SCRIPT_DIR}/skills/${SKILL_NAME}"
+fi
 
-if [[ -d "$LOCAL_SOURCE_DIR" ]]; then
+if [[ -n "$LOCAL_SOURCE_DIR" && -d "$LOCAL_SOURCE_DIR" ]]; then
   SOURCE_DIR="$LOCAL_SOURCE_DIR"
 else
   ARCHIVE_URL="https://codeload.github.com/${REPO_OWNER}/${REPO_NAME}/tar.gz/refs/heads/${REPO_REF}"
