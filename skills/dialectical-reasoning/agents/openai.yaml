@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dialectical Reasoning"
+  short_description: "Analyze contradictions, motion, and turning points"
+  default_prompt: "Use $dialectical-reasoning to analyze this issue through contradictions, principal aspects, and turning points."

@@ -1,0 +1,18 @@
+{
+  "name": "dialectical-reasoning-skill",
+  "owner": {
+    "name": "Uoghluvm"
+  },
+  "metadata": {
+    "description": "Portable dialectical reasoning skill for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "dialectical-reasoning",
+      "description": "Analyze contradictions, principal aspects, stage shifts, and syntheses",
+      "source": "./",
+      "category": "education",
+      "tags": ["dialectics", "analysis", "reasoning", "philosophy"]
+    }
+  ]
+}

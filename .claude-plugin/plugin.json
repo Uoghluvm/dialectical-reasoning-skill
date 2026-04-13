@@ -1,0 +1,13 @@
+{
+  "name": "dialectical-reasoning",
+  "description": "Portable dialectical reasoning skill for contradiction analysis and staged synthesis",
+  "version": "1.0.0",
+  "author": {
+    "name": "Uoghluvm"
+  },
+  "homepage": "https://github.com/Uoghluvm/dialectical-reasoning-skill",
+  "repository": "https://github.com/Uoghluvm/dialectical-reasoning-skill",
+  "license": "MIT",
+  "keywords": ["dialectics", "reasoning", "analysis", "philosophy", "skills"],
+  "skills": "./skills"
+}
